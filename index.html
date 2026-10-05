@@ -1,0 +1,481 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HealthShield | Healthcare Cyber Risk Monitor</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div class="brand">
+        <div class="shield">🛡️</div>
+
+        <div>
+            <h1>HealthShield</h1>
+            <p>Healthcare Cyber Risk Monitoring Platform</p>
+        </div>
+    </div>
+
+    <div class="system-status">
+        <span class="status-dot"></span>
+        SIMULATION ONLINE
+    </div>
+
+</header>
+
+
+<main class="container">
+
+    <div class="notice">
+        <strong>⚠️ Controlled Simulation Environment</strong>
+        <span>
+            All activity shown in this prototype uses simulated healthcare data.
+        </span>
+    </div>
+
+
+    <!-- STATISTICS -->
+
+    <section class="stats">
+
+        <div class="stat-card">
+            <div class="stat-icon">📊</div>
+
+            <div>
+                <p>Total Events</p>
+                <h2 id="totalEvents">120</h2>
+            </div>
+        </div>
+
+
+        <div class="stat-card">
+            <div class="stat-icon green">✓</div>
+
+            <div>
+                <p>Low Risk</p>
+                <h2 id="lowRisk">92</h2>
+            </div>
+        </div>
+
+
+        <div class="stat-card">
+            <div class="stat-icon orange">!</div>
+
+            <div>
+                <p>High Risk</p>
+                <h2 id="highRisk">20</h2>
+            </div>
+        </div>
+
+
+        <div class="stat-card">
+            <div class="stat-icon red">⚠</div>
+
+            <div>
+                <p>Critical</p>
+                <h2 id="criticalRisk">8</h2>
+            </div>
+        </div>
+
+    </section>
+
+
+    <div class="dashboard-grid">
+
+
+        <!-- LEFT SIDE -->
+
+        <div>
+
+
+            <!-- SIMULATOR -->
+
+            <section class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h2>Security Event Simulator</h2>
+
+                        <p>
+                            Generate controlled healthcare security events.
+                        </p>
+                    </div>
+
+                    <span class="live-badge">LIVE</span>
+
+                </div>
+
+
+                <div class="event-buttons">
+
+                    <button
+                        class="event-btn normal"
+                        onclick="simulateNormal()">
+
+                        <span>🟢</span>
+
+                        <div>
+                            <strong>Normal Login</strong>
+                            <small>Legitimate activity</small>
+                        </div>
+
+                    </button>
+
+
+                    <button
+                        class="event-btn suspicious"
+                        onclick="simulateSuspicious()">
+
+                        <span>🟠</span>
+
+                        <div>
+                            <strong>Suspicious Login</strong>
+                            <small>Unusual behavior</small>
+                        </div>
+
+                    </button>
+
+
+                    <button
+                        class="event-btn critical"
+                        onclick="simulateCritical()">
+
+                        <span>🔴</span>
+
+                        <div>
+                            <strong>Bulk Patient Access</strong>
+                            <small>Critical anomaly</small>
+                        </div>
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SECURITY ALERT -->
+
+            <section
+                class="panel alert-panel"
+                id="alertPanel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h2>Security Alert</h2>
+                        <p id="alertStatus">
+                            Monitoring for suspicious activity.
+                        </p>
+                    </div>
+
+                    <span id="alertBadge" class="alert-badge safe">
+                        MONITORING
+                    </span>
+
+                </div>
+
+
+                <div id="alertContent" class="empty-alert">
+
+                    <div class="empty-icon">🛡️</div>
+
+                    <h3>No Active Threat</h3>
+
+                    <p>
+                        Run a security event simulation above
+                        to test the detection system.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- RECENT ACTIVITY -->
+
+            <section class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h2>Recent Security Activity</h2>
+
+                        <p>
+                            Simulated events detected by HealthShield.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Time</th>
+                                <th>User</th>
+                                <th>Event</th>
+                                <th>Risk</th>
+                                <th>Status</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="activityTable">
+
+                            <tr>
+                                <td>10:42:12</td>
+                                <td>Dr. Arun</td>
+                                <td>Normal Login</td>
+
+                                <td>
+                                    <span class="badge low-bg">
+                                        LOW
+                                    </span>
+                                </td>
+
+                                <td>Allowed</td>
+                            </tr>
+
+
+                            <tr>
+                                <td>10:41:55</td>
+                                <td>Nurse Maya</td>
+                                <td>Unusual Login</td>
+
+                                <td>
+                                    <span class="badge high-bg">
+                                        HIGH
+                                    </span>
+                                </td>
+
+                                <td>Under Review</td>
+                            </tr>
+
+
+                            <tr>
+                                <td>10:41:21</td>
+                                <td>Admin John</td>
+                                <td>Normal Access</td>
+
+                                <td>
+                                    <span class="badge low-bg">
+                                        LOW
+                                    </span>
+                                </td>
+
+                                <td>Allowed</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+
+        <!-- RIGHT SIDE -->
+
+        <aside>
+
+
+            <!-- RISK SCORE -->
+
+            <section class="panel risk-panel">
+
+                <h2>Current Risk</h2>
+
+                <div
+                    class="risk-circle"
+                    id="riskCircle">
+
+                    <span id="riskScore">
+                        0
+                    </span>
+
+                    <small>/100</small>
+
+                </div>
+
+
+                <div
+                    id="riskLevel"
+                    class="risk-level safe">
+
+                    NO THREAT
+
+                </div>
+
+                <p class="risk-description">
+                    Risk score is calculated from simulated
+                    healthcare activity indicators.
+                </p>
+
+            </section>
+
+
+
+            <!-- RISK ANALYSIS -->
+
+            <section class="panel">
+
+                <h2>Risk Analysis</h2>
+
+                <p class="section-description">
+                    Explainable factors contributing to the
+                    current risk score.
+                </p>
+
+
+                <div class="risk-factor">
+
+                    <div>
+                        <span>Unusual login time</span>
+                        <strong id="factorTime">+0</strong>
+                    </div>
+
+                    <div class="progress">
+                        <span id="barTime"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="risk-factor">
+
+                    <div>
+                        <span>Failed login attempts</span>
+                        <strong id="factorLogin">+0</strong>
+                    </div>
+
+                    <div class="progress">
+                        <span id="barLogin"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="risk-factor">
+
+                    <div>
+                        <span>Access volume</span>
+                        <strong id="factorVolume">+0</strong>
+                    </div>
+
+                    <div class="progress">
+                        <span id="barVolume"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="risk-factor">
+
+                    <div>
+                        <span>Abnormal behavior</span>
+                        <strong id="factorBehavior">+0</strong>
+                    </div>
+
+                    <div class="progress">
+                        <span id="barBehavior"></span>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- AUDIT LOG -->
+
+            <section class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h2>Security Audit Log</h2>
+                        <p>Recent system actions</p>
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="audit-log"
+                    id="auditLog">
+
+                    <div class="audit-item">
+
+                        <span class="audit-time">
+                            10:42:12
+                        </span>
+
+                        <span>
+                            System initialized
+                        </span>
+
+                    </div>
+
+
+                    <div class="audit-item">
+
+                        <span class="audit-time">
+                            10:42:13
+                        </span>
+
+                        <span>
+                            Monitoring started
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </aside>
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <strong>HealthShield</strong>
+
+        <span>
+            Prototype • Synthetic Data • Controlled Environment
+        </span>
+
+    </footer>
+
+</main>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
